@@ -1,0 +1,325 @@
+{{ doctype() }}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0e0e0e"/>
+    <meta name="description" content="Electus Online">
+    <meta name="keywords" content="Electus,electusonline,Electus Online">
+    <meta name="author" content="Electus Online">
+    <meta name="copyright" content="Electus Online" />
+    <meta name="csrf-token" content="vWtc4RlblFzswYbBunhsEgtkmfkBRYvgyAIkGDlE" />
+
+    <meta property="og:url" content="http://www.electus.online" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Home" />
+    <meta property="og:site_name" content="Electus Online" />
+    <meta property="og:image" content="/images/og.png" />
+    <meta property="og:description" content="Electus Online" />
+    <meta property="og:locale" content="en_US" />
+
+    {% block meta %}{% endblock meta %}
+
+	<title>
+        {% block title %}{{ navigationWidgetPServerCore().menu('Zend\\Navigation\\Default').getContainer().findAllBy('active', true)|last.getLabel }}{% endblock title %} >> {{ translate('PServerCore') }}
+	</title>
+	
+    <!--[if IE]-->
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <!--[endif]-->
+
+    <link rel="shortcut icon" sizes="192x192" href="/192-favicon.png"/>
+    <link rel="shortcut icon" sizes="192x192" href="/192-favicon.ico"/>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/cookieconsent.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
+
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/blitzer/jquery-ui.min.css">
+	
+	<!-- PServerCMS -->
+	<link rel="stylesheet" type="text/css" href="/css/layout.css">
+
+    {% block style %}{% endblock style %}
+	
+	<!-- scripts -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background: none; border: none;">
+    <div class="container nav-container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand visible-xs" href="/"><img src="/images/phone-brand.png" title="Home" alt="Home" /></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <ul class="nav nav-fade hidden-xs" style="float: left;">
+            <li class="hidden-xs" id="brand">
+                <a class="navbar-brand hidden-xs" href="/"><img src="/images/brand.png" id="branding" title="Home" alt="Home" /></a>
+                <a class="hidden-xs" href="/" id="phoneBranding"><img src="/images/phone-brand.png" title="Home" alt="Home" /></a>
+            </li>
+        </ul>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="nav navbar-nav nav-fade">
+			
+				{{ navigationWidgetPServerCore().menu('default').setPartial('p-server-core/navigation')|raw }}
+				
+				{% if isAllowed('small-user-auth','index') %}
+					<li><a href="{{ url('small-user-auth',{'action':'register'}) }}">{{ translate('Register') }}</a></li>
+					<li><a href="{{ url('small-user-auth') }}">{{ translate('Login') }}</a></li>
+				{% endif %}
+				{% if isAllowed('small-user-auth','logout') %}
+					<li><a href="{{ url('small-user-auth',{'action':'logout'}) }}">{{ translate('Logout') }}</a></li>
+				{% endif %}
+				
+			</ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<!-- Image Background Page Header -->
+<!-- Note: The background image is set within the business-casual.css file. -->
+<header class="template-header-home">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="text-align: center;">
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+
+            <h1 class="tagline-home">Home <small></small></h1>
+            <div class="custom-seperator"><img src="/images/section-title-image.png" style="margin: 10px 0;" /></div>
+
+                                                
+    {% block content %}{{ content|raw }}{% endblock content %}
+	
+    <div class="posts">
+        <h3 class="page-header" style="">
+        Registration &amp; Donation Period will start on April 23rd, Tuesday, 16:00
+        <small class="pull-right text-default">
+            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+            Apr 20, 2019
+        </small>
+    </h3>
+    <div class="news-content">
+            <div class="embed-responsive embed-responsive-16by9"><iframe allowfullscreen="allowfullscreen" src="//www.youtube.com/embed/dnYqE8JaGf4" class="embed-responsive-item" width="undefined" height="undefined" data-mce-fragment="1"></iframe></div>
+<p>&nbsp;</p>
+    </div>
+
+<div class="text-center">  </div>    </div>
+
+        </div>
+
+
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 sidebar">
+		
+			{{ sidebarWidget() }}
+			
+            <hr class="visible-xs visible-sm">
+            <h3>Server info</h3>
+ <ul class="list-unstyled">
+     <li><strong><span class="glyphicon glyphicon-user"></span> <span style="color: green;">Players online:</span></strong> 2/10000</li>
+     <li><strong><span class="glyphicon glyphicon-time"></span> Server Time:</strong> <span id="server_time"></span></li>
+     <li><span class="glyphicon glyphicon-alert"></span> CAP: 110</li>
+     <li><span class="glyphicon glyphicon-globe"></span> Race: Chinese/European</li>
+     <li><span class="glyphicon glyphicon-asterisk"></span> XP Solo: 65x</li>
+     <li><span class="glyphicon glyphicon-asterisk"></span> XP PT: 50x</li>
+     <li><span class="glyphicon glyphicon-play"></span> Guild Limit: 24</li>
+     <li><span class="glyphicon glyphicon-play"></span> Union Limit: 3</li>
+     <li><span class="glyphicon glyphicon-asterisk"></span> Special Trade: Every day: 20:30-22:00</li>
+     <li><span class="glyphicon glyphicon-plus-sign"></span> Max Plus: 11</li>
+     <li><span class="glyphicon glyphicon-screenshot"></span> Play2Win: YES</li>
+ </ul>
+
+
+
+
+
+
+<hr>
+
+<h3>Fortress war</h3>
+<ul class="list-unstyled">
+    
+    <li><span class="glyphicon glyphicon-time"></span> Fortress War: Sunday 19:30</li>
+    <li><strong><span class="glyphicon glyphicon-check"></span> Registration:</strong> Everyday, except during fortress war.</li>
+    <li><strong><img src="/images/fw/fort-jangan.png" alt="Jangan Fortress"/>&nbsp;Jangan:</strong> Not occupied</li>
+    <li><strong><img src="/images/fw/fort-bandit.png" alt="Bandit Fortress"/>&nbsp;Bandit:</strong> Not occupied</li>
+    <li><strong><img src="/images/fw/fort-hotan.png" alt="Hotan Fortress"/>&nbsp;Hotan:</strong> Not occupied</li>
+    
+</ul>
+
+<hr>
+<h3>Unique Kills</h3>
+<ul class="list-group">
+
+    <li class="list-group-item">No Unique Kills</li>
+<a href="/uniquekills" class="btn btn-info btn-sm" style="width: 100%">More</a>
+</ul>
+
+<hr>
+<h3>Job Kills</h3>
+<ul class="list-group">
+
+    <li class="list-group-item">No Job Kills</li>
+<a href="/jobkills" class="btn btn-info btn-sm" style="width: 100%">More</a>
+</ul>
+
+<hr>
+
+<h3>Discord</h3>
+
+<div class="discord">
+<iframe src="https://discordapp.com/widget?id=352158111236358155&theme=dark" width="100%" height="100%" allowtransparency="true" frameborder="0"></iframe>
+</div>
+
+<hr>
+
+<h3>Facebook</h3>
+
+<div>
+<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Felectusonline&tabs&width=262&height=130&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false&appId" width="262" height="130" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+</div>
+        </div>
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+
+
+<div class="container">
+    <!-- Footer -->
+<footer>
+    <div class="row">
+        <div class="col-lg-12">
+            <hr>
+            <p class="pull-left">Copyright &copy; Electus Online 2015 - 2019 | <a href="/rules">Rules</a> | <a href="/termsofuse">Terms of use</a> | <span id="lenox"><a href="#lenox" data-toggle="tooltip" data-placement="top" data-html="true" title="Discord: <b>LENOX#3133</b><br>Skype: <b>lenox724</b>">Coded by LENOX</a></span></li>
+            </p>
+            <div class="pull-right">
+            <form class="form-inline pull-left" action="/subscribe/email" method="post">
+
+                <input type="hidden" name="_token" value="vWtc4RlblFzswYbBunhsEgtkmfkBRYvgyAIkGDlE">
+
+                <div class="form-group">
+                    <span class="form-control-static">Join our Email Newsletter:</span>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail" class="sr-only">E-Mail</label>
+                    <input type="email" class="form-control" id="inputEmail" name="mail" placeholder="E-Mail">
+                </div>
+                <button type="submit" class="btn btn-default">JOIN</button>
+            </form>
+
+            <span class="pull-right backlinks" style="margin-left: 10px;">
+            <a href="https://www.elitepvpers.com/forum/sro-pserver-advertising/4605129-electusonline-cap-110-eu-ch-10k-slots-grand-opening-april-26th.html" target="_blank">
+                <img src="/images/backlinks/epvp.png" height="45"/>
+            </a>
+
+            </span>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</footer>
+</div>
+</body>
+<!-- jQuery -->
+<script src="/js/jquery-3.1.1.min.js" type="text/javascript"></script>
+<!-- Latest compiled and minified bootstrap JavaScript -->
+<script src="/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script src="/js/moment.min.js"></script>
+<script src="/js/moment-timezone.min.js"></script>
+<script src="/js/cookieconsent.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    moment.tz.setDefault("Europe/Helsinki");
+    window.addEventListener("load", function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#252e39"
+                },
+                "button": {
+                    "background": "#14a7d0"
+                }
+            },
+            "showLink": false,
+            "position": "bottom-right"
+        })
+    });
+
+    
+
+    
+
+    $(document).ready(function(){
+        
+        
+        
+        
+        
+        
+        
+
+});
+
+function update() {
+$('#server_time').html(moment().format('H:mm:ss'));
+}
+
+setInterval(update, 1000);
+
+
+</script>
+
+<script src="/js/all.js" type="text/javascript"></script>
+<script type="text/javascript" src="/js/function.js"></script>
+
+<script type="text/javascript">
+    var ServerTime = new Date( {{ "now"|date("Y, n, j, G, i, s") }} );
+    var iTimeStamp = {{ "now"|date("U") }} - Math.round( + new Date() / 1000 );
+    startClockTimer('#idTimerClock');
+</script>
+
+{% block script %}{% endblock script %}
+
+
+</html>
